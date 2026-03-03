@@ -74,3 +74,22 @@ Olá meu nome é ${nomeUnico}, meu objetivo atual é ${objetivoDoAno} .
 Já tive uma experiência dentro da Malwee porém busco me formar sem uso de IA para codar!
 E me especializar tanto em Front minimanente e BACK!
 `);
+
+console.log(`
+=================================
+      SISTEMA DO USUÁRIO
+=================================
+
+1 - Ver Perfil
+2 - Editar Perfil
+3 - Configurações
+4 - Notificações
+5 - Relatórios 
+6 - Ajuda
+7 - Sobre o  Sistema
+0 - Sair
+
+=================================
+Digite o número da opção desejada
+=================================
+`);
