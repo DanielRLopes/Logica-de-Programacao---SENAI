@@ -47,4 +47,4 @@ aluno.responsavel = {
 console.log(aluno.responsavel.nome)
 aluno.responsavel.nome = "Fernando"
 console.log(aluno.responsavel)
-console.table(aluno)
+console.log(aluno)
