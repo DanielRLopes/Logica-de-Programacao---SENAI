@@ -92,11 +92,33 @@ const arrayProdutos = [
 ]
 
 const objetoCatalogo = {
-    id: arrayProdutos[0].id, produto: arrayProdutos[0].nome
+    id: arrayProdutos[0].id, produto: arrayProdutos[0].nome,
+    id: arrayProdutos[1].id, produto: arrayProdutos[1].nome,
 }
 console.log(objetoCatalogo)
-
 console.log(`
     - - - FIM - - -
 `)
 
+console.log(`
+    - - - ESTRUTURA COMPOSTA: TAREFA "SIMPLES" - - -
+`)
+
+const arrTarefas = [
+    {
+        id: 0, titulo: "Limpar gavetas", concluida: false
+    },
+    {
+        id: 1, titulo: "Limpar banheiro", concluida: false
+    },
+    {
+        id: 2, titulo: "Revisar limpeza", concluida: false
+    }
+]
+arrTarefas[2].concluida = true
+const arrTarefasIncompletas = [arrTarefas[0], arrTarefas[1]]
+console.log(arrTarefasIncompletas)
+
+console.log(`
+    - - - FIM - - -
+`)
