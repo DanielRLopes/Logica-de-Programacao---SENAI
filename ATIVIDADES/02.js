@@ -86,5 +86,5 @@ const arrMatriz = [
     [6, 7, 8]
 ]
 console.log(arrMatriz)
-const arrMatrizPLana = arrMatriz.flat(Infinity)
+const arrMatrizPLana = arrMatriz.flat()
 console.log(arrMatrizPLana)
