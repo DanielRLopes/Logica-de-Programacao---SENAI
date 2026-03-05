@@ -38,3 +38,5 @@ console.log(
 // Combinar dados em um objeto e imprimir como tabela
 const usuario = { nome: nomeUsuario, idade: idadeUsuario, gostaDeProgramar };
 console.table([usuario]);
+
+
