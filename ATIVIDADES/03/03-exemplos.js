@@ -6,7 +6,7 @@ console.error("ERRO: Algo deu errado (SOMENTE EXEMPLO)");
 const alunos = [
   { nome: "Felipe", idade: 21 },
   { nome: "Jonas", idade: 34 },
-  { nome: "Kaua", idade: 18 }
+  { nome: "Kaua", idade: 18 },
 ];
 
 console.table(alunos);
@@ -32,11 +32,9 @@ const gostaDeProgramar = readlineSync.keyInYN("Voce gosta de programar? (s/n)");
 // ============================================================
 console.log(`Olá ${nomeUsuario}! Idade: ${idadeUsuario}`);
 console.log(
-  `${nomeUsuario} ${gostaDeProgramar ? "gosta" : "não gosta"} de programar.`
+  `${nomeUsuario} ${gostaDeProgramar ? "gosta" : "não gosta"} de programar.`,
 );
 
 // Combinar dados em um objeto e imprimir como tabela
 const usuario = { nome: nomeUsuario, idade: idadeUsuario, gostaDeProgramar };
 console.table([usuario]);
-
-
