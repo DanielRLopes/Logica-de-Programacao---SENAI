@@ -180,5 +180,10 @@ console.log("_______________________________");
 /* 
 A) 
 */
+userName = readlineSync.question(`Insira seu Nome:`)
+userAge = readlineSync.questionInt(`Insira sua Idade:`)
+let ehEstudante = readlineSync.keyInYN(`É estudante? `)
+let pagaNoPix = readlineSync.keyInYN(`Vai pagar no PIX? `)
+let planoEscolhido = readlineSync.questionInt(`Escolha um plano (1, 2, 3 ou 4):`)
 
 console.log("_______________________________");
