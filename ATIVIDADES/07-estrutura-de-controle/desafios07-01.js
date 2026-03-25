@@ -34,21 +34,21 @@ let userAltura = readlineSync.questionFloat(`
     Insira sua altura (m):`)
 
 const pessoa = {
-    nome : userName,
-    peso : userPeso,
-    altura : userAltura
+    nome: userName,
+    peso: userPeso,
+    altura: userAltura
 }
 
-pessoa.imc = (userPeso / (userAltura ** 2)).tofixes(2)
-pessoa.calculoImc = ( pessoa.imc < 18.5 ? "Abaixo do peso" : 
-     pessoa.imc >= 18.5 && pessoa.imc < 25 ? "Peso normal" :
-     pessoa.imc >= 25 && pessoa.imc < 30 ? "Sobrepeso" :
-     pessoa.imc >= 30 && pessoa.imc < 35 ? "Obesidade grau I" :
-     pessoa.imc >= 35 && pessoa.imc < 40 ? "Obesidade grau II" : "Obesidade grau III" )
+pessoa.imc = (userPeso / (userAltura ** 2)).toFixed(2)
+pessoa.calculoImc = (pessoa.imc < 18.5 ? "Abaixo do peso" :
+    pessoa.imc >= 18.5 && pessoa.imc < 25 ? "Peso normal" :
+        pessoa.imc >= 25 && pessoa.imc < 30 ? "Sobrepeso" :
+            pessoa.imc >= 30 && pessoa.imc < 35 ? "Obesidade grau I" :
+                pessoa.imc >= 35 && pessoa.imc < 40 ? "Obesidade grau II" : "Obesidade grau III")
 
 console.table(pessoa)
 
-console.log (`${pessoa.nome}, seu IMC e ${pessoa.imc} - Classificacao: ${pessoa.calculoImc}`)
+console.log(`${pessoa.nome}, seu IMC e ${pessoa.imc} - Classificacao: ${pessoa.calculoImc}`)
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -82,6 +82,39 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const conta = {
+    titular: "Maria",
+    saldo: 1500,
+    bloqueada: false,
+    senha: 1234
+}
+
+let opcoes
+let valorDepositar
+let valorSacar
+const userSenha = readlineSync.questionInt(`Insira a senha:`)
+
+if (conta.senha !== userSenha) {
+    console.log(`Senha incorreta.`)
+} else {
+    const userOpcoes = ["Sacar", "Depositar"]
+    opcoes = readlineSync.keyInSelect(userOpcoes, `Deseja Sacar ou Depositar?`)
+} if (opcoes === 0) {
+    valorSacar = readlineSync.questionFloat(`Quanto deseja Sacar? `)
+} else {
+    valorDepositar = readlineSync.questionFloat(`Quanto deseja Depositar? `)
+} if (conta.bloqueada === true) {
+    console.log(`Conta bloqueada. Procure uma agencia.`)
+} else if ((valorSacar <= 0) || valorSacar > conta.saldo) {
+    console.info(`INFO: Valor invalido ou Saldo Insuficiente.`)
+} else {
+    console.log(`Saque de ${valorSacar} realizado. Novo saldo: R$${conta.saldo - valorSacar}`)
+} if (valorDepositar <= 0) {
+    console.info(`INFO: Valor invalido ou Saldo Insuficiente.`)
+} else {
+    console.log(`Deposito de ${valorDepositar} realizado. Novo saldo: R$ ${valorDepositar + conta.saldo}`)
+}
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -110,8 +143,20 @@ console.log("_______________________________");
 //    - Não pode → "<nome> não pode assistir. Classificação: <classificação> anos."
 
 // → Seu código aqui:
+const classificao = ["0 Livre", "10 de 10 anos", "12 de 12 anos", "14 de 14 anos", "16 de 16 anos", "18 de 18 anos"]
 
-console.log("_______________________________");
+userName = readlineSync.question(`Nome do espectador:`)
+let userAge = readlineSync.questionInt(`Idade do espectador:`)
+let classificaoFilme = readlineSync.keyInSelect(classificao, `Qual classificao do filme?`)
+
+const cinema = {
+    nome: userName,
+    idade: userAge,
+    classificaoEscolhida: classificaoFilme
+}
+
+if (userAge)
+    console.log("_______________________________");
 
 // ------------------------------------------------------------
 // DESAFIO 4 – Simulador de pedido de lanche
@@ -163,5 +208,6 @@ console.log("_______________________________");
 // c) Exiba o resultado com template literal.
 
 // → Seu código aqui:
+
 
 console.log("_______________________________");
