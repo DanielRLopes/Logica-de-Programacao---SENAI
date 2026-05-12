@@ -31,20 +31,55 @@
 //    Se tudo estiver correto → "Cadastro de <usuario> realizado com sucesso!"
 
 // → Seu código aqui:
+const readlineSync = require("readline-sync");
 
-/*Config*/
-const readlineSync = require("readline-sync")
-const DadosPessoais = {
-    nome: readlineSync.question(`Insira seu Nome:`),
-    cpf: readlineSync.question(`Insira seu CPF completo:`),
-    idade: readlineSync.questionInt(`Insira sua Idade:`),
-    enderenco: {
-        cidade: readlineSync.question(`Insira a Cidade que vive:`),
-        estado: readlineSync.question(`Insira o Estado que vive:`),
-    }
+const cadastro = {
+  dadosPessoais: {
+    nomeCompleto: readlineSync.question(`Insira seu Nome:`),
+    cpf: readlineSync.question(`Insira seu CPF:`),
+    idade: readlineSync.questionInt(`Insira sua idade:`),
+  },
+
+  endereco: {
+    cidade: readlineSync.question(`Cidade:`),
+    estado: readlineSync.question(`Estado sigla 2 caracteres: `),
+  },
+
+  acesso: {
+    usuario: readlineSync.question(`Usuario:`),
+    senha: readlineSync.question(`Senha:`),
+    confirmarSenha: readlineSync.question(`Confirme a senha:`),
+  },
+};
+
+const nomeSeparado = cadastro.dadosPessoais.nomeCompleto.split(" ");
+
+const validacaoCampoNome =
+  cadastro.dadosPessoais.nomeCompleto.length === 0
+    ? "Nome vazio ou indefinido"
+    : nomeSeparado.length < 2
+      ? "Digite nome e sobrenome"
+      : nomeSeparado[0].length < 2 || nomeSeparado[1].length < 2
+        ? "Minimo 2 caracteres por palavra"
+        : "Nome válido";
+
+const validacaoCampos =
+  cadastro.dadosPessoais.cpf.length !== 11
+    ? "Cpf invalido"
+    : cadastro.dadosPessoais.idade < 18
+      ? "Menor de idade"
+      : cadastro.endereco.estado.length !== 2
+        ? "Somente 2 caracteres para Estado"
+        : cadastro.acesso.senha.length < 8
+          ? "Senha curta"
+          : cadastro.acesso.confirmarSenha !== cadastro.acesso.senha
+            ? "Senha de confirmacao invalida"
+            : `Cadastro de ${cadastro.acesso.usuario} realizado com sucesso!`;
+
+if (validacaoCampoNome && validacaoCampos) {
+  console.log(validacaoCampos);
 }
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // DESAFIO 2 – Sistema de reserva de hotel
@@ -72,19 +107,21 @@ console.log("_______________________________");
 // f) Exiba: "Reserva confirmada para <nome>! Total: R$ <total>"
 
 // → Seu código aqui:
-/* CONFIG*/
-const reserva = {
-    hospede: {
-        nome, ehSocio: false, temPet: false
-    },
-    quarto: {
-        numero: 101, tipo: "Standard", petFriendly: false, disponivel: true, precoPorNoite: 250
-    }
-}
 
+const reserva = {
+  hospede: {
+    nome: readlineSync.question,
+    ehSocio: false,
+    temPet: false,
+  },
+  quarto: {
+    numero: 101,
+    tipo: "standard",
+    petFriendly: false,
+  },
+};
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // DESAFIO 3 – Aprovação escolar com frequência
@@ -116,9 +153,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // DESAFIO 4 – Simulador de análise de crédito
@@ -160,9 +195,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // DESAFIO 5 – Controle de embarque aéreo
@@ -201,6 +234,5 @@ console.log("_______________________________");
 // g) Exiba o objeto "embarque" com console.table() ao final.
 
 // → Seu código aqui:
-
 
 console.log("_______________________________");

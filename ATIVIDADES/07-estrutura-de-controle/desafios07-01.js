@@ -34,21 +34,30 @@ let userAltura = readlineSync.questionFloat(`
     Insira sua altura (m):`);
 
 const pessoa = {
-    nome : userName,
-    peso : userPeso,
-    altura : userAltura
-}
+  nome: userName,
+  peso: userPeso,
+  altura: userAltura,
+};
 
-pessoa.imc = (userPeso / (userAltura ** 2)).tofixes(2)
-pessoa.calculoImc = ( pessoa.imc < 18.5 ? "Abaixo do peso" : 
-     pessoa.imc >= 18.5 && pessoa.imc < 25 ? "Peso normal" :
-     pessoa.imc >= 25 && pessoa.imc < 30 ? "Sobrepeso" :
-     pessoa.imc >= 30 && pessoa.imc < 35 ? "Obesidade grau I" :
-     pessoa.imc >= 35 && pessoa.imc < 40 ? "Obesidade grau II" : "Obesidade grau III" )
+pessoa.imc = (userPeso / userAltura ** 2).toFixed(2);
+pessoa.calculoImc =
+  pessoa.imc < 18.5
+    ? "Abaixo do peso"
+    : pessoa.imc >= 18.5 && pessoa.imc < 25
+      ? "Peso normal"
+      : pessoa.imc >= 25 && pessoa.imc < 30
+        ? "Sobrepeso"
+        : pessoa.imc >= 30 && pessoa.imc < 35
+          ? "Obesidade grau I"
+          : pessoa.imc >= 35 && pessoa.imc < 40
+            ? "Obesidade grau II"
+            : "Obesidade grau III";
 
 console.table(pessoa);
 
-console.log (`${pessoa.nome}, seu IMC e ${pessoa.imc} - Classificacao: ${pessoa.calculoImc}`)
+console.log(
+  `${pessoa.nome}, seu IMC e ${pessoa.imc} - Classificacao: ${pessoa.calculoImc}`,
+);
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -81,6 +90,62 @@ console.log("_______________________________");
 // Verifique se é possível fazer verificações uma única vez, alterando a lógica ao invés de duplicar código.
 
 // → Seu código aqui:
+const conta = {
+  titular: "Maria",
+  saldo: 1500,
+  bloqueada: false,
+  senha: 1234,
+};
+
+let adivinharSenha = readlineSync.questionInt(`
+Insira a senha de 4 digitos:`);
+
+if (adivinharSenha === conta.senha) {
+  const eSacarDepositar = ["Sacar", "Depositar"];
+
+  let escolherSaqueDepositar = readlineSync.keyInSelect(
+    eSacarDepositar,
+    `Sacar ou Depositar:`,
+  );
+
+  if (conta.bloqueada === true) {
+    console.log(`Conta bloqueada. Procure uma agência.`);
+  } else if (escolherSaqueDepositar === 0) {
+    let valorSaque = readlineSync.questionFloat(`
+Quanto deseja sacar?`);
+
+    if (valorSaque <= 0) {
+      console.log(`Valor inválido.`);
+    } else if (valorSaque > conta.saldo) {
+      console.log(`
+Saldo insuficiente. Saldo atual: R$ ${conta.saldo}
+`);
+    } else {
+      conta.saldo -= valorSaque;
+
+      console.log(`
+Saque de R$ ${valorSaque} realizado.
+Novo saldo: R$ ${conta.saldo}
+`);
+    }
+  } else if (escolherSaqueDepositar === 1) {
+    let valorDeposito = readlineSync.questionFloat(`
+Quanto deseja depositar?`);
+
+    if (valorDeposito <= 0) {
+      console.log(`Valor inválido.`);
+    } else {
+      conta.saldo += valorDeposito;
+
+      console.log(`
+Depósito de R$ ${valorDeposito} realizado.
+Novo saldo: R$ ${conta.saldo}
+`);
+    }
+  }
+} else {
+  console.log(`Senha incorreta. Operação cancelada.`);
+}
 
 console.log("_______________________________");
 
@@ -110,20 +175,40 @@ console.log("_______________________________");
 //    - Não pode → "<nome> não pode assistir. Classificação: <classificação> anos."
 
 // → Seu código aqui:
-const classificao = ["0 Livre", "10 de 10 anos", "12 de 12 anos", "14 de 14 anos", "16 de 16 anos", "18 de 18 anos"]
+const classificacao = [0, 10, 12, 14, 16, 18];
 
-userName = readlineSync.question(`Nome do espectador:`)
-let userAge = readlineSync.questionInt(`Idade do espectador:`)
-let classificaoFilme = readlineSync.keyInSelect(classificao, `Qual classificao do filme?`)
+let nomeEspectador = readlineSync.question(`
+Nome do espectador:`);
+
+let idadeEspectador = readlineSync.questionInt(`
+Idade do espectador:`);
+
+let filmeEscolhido = readlineSync.keyInSelect(
+  classificacao,
+  `Escolha a classificação do filme:`,
+);
 
 const cinema = {
-    nome: userName,
-    idade: userAge,
-    classificaoEscolhida: classificaoFilme
-}
+  nome: nomeEspectador,
+  idade: idadeEspectador,
+  classificacao: classificacao[filmeEscolhido],
+};
 
-if (userAge)
-    console.log("_______________________________");
+if (cinema.classificacao === 0) {
+  console.log(`
+${cinema.nome} pode assistir. Boa sessão!
+`);
+} else if (cinema.idade >= cinema.classificacao) {
+  console.log(`
+${cinema.nome} pode assistir. Boa sessão!
+`);
+} else {
+  console.log(`
+${cinema.nome} não pode assistir.
+Classificação: ${cinema.classificacao} anos.
+`);
+}
+console.log("_______________________________");
 
 // ------------------------------------------------------------
 // DESAFIO 4 – Simulador de pedido de lanche
@@ -152,6 +237,58 @@ if (userAge)
 
 // → Seu código aqui:
 
+const cardapio = ["X-Burguer", "X-Frango", "X-Veggie", "Combo"];
+
+let nomeCliente = readlineSync.question(`
+Digite seu nome:`);
+
+let lancheEscolhido = readlineSync.keyInSelect(cardapio, `Escolha seu lanche:`);
+
+let total = 0;
+let batata = false;
+let refrigerante = false;
+
+if (lancheEscolhido === 0) {
+  total = 22;
+} else if (lancheEscolhido === 1) {
+  total = 20;
+} else if (lancheEscolhido === 2) {
+  total = 18;
+} else if (lancheEscolhido === 3) {
+  total = 35;
+}
+
+if (lancheEscolhido !== 3) {
+  batata = readlineSync.keyInYN(`
+Quer batata frita?`);
+
+  refrigerante = readlineSync.keyInYN(`
+Quer refrigerante?`);
+
+  if (batata) {
+    total += 8;
+  }
+
+  if (refrigerante) {
+    total += 5;
+  }
+}
+
+const pedido = {
+  nome: nomeCliente,
+  lanche: cardapio[lancheEscolhido],
+  batata,
+  refrigerante,
+  total,
+};
+
+console.table(pedido);
+
+console.log(`
+Pedido de ${pedido.nome}: ${pedido.lanche}
+Total = R$ ${pedido.total}
+`);
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -175,5 +312,37 @@ console.log("_______________________________");
 // c) Exiba o resultado com template literal.
 
 // → Seu código aqui:
+
+let corSemaforo = readlineSync.question(`
+Cor do semáforo:`);
+
+let velocidade = readlineSync.questionInt(`
+Velocidade do veículo:`);
+
+if (corSemaforo === "verde" && velocidade <= 60) {
+  console.log(`
+Tudo certo. Pode seguir.
+`);
+} else if (corSemaforo === "verde" && velocidade > 60) {
+  console.log(`
+Atenção: acima do limite no sinal verde.
+`);
+} else if (corSemaforo === "amarelo") {
+  console.log(`
+Reduza a velocidade e prepare-se para parar.
+`);
+} else if (corSemaforo === "vermelho" && velocidade > 0) {
+  console.log(`
+PARE! Você avançou o sinal vermelho.
+`);
+} else if (corSemaforo === "vermelho" && velocidade === 0) {
+  console.log(`
+Correto. Aguarde o sinal abrir.
+`);
+} else {
+  console.log(`
+Cor de semáforo inválida.
+`);
+}
 
 console.log("_______________________________");
