@@ -1,20 +1,20 @@
-const readlineSync = require("readline-sync")
+const readlineSync = require("readline-sync");
 
-// // ------------------------------------------------------------
-// // EXERCÍCIO 1 – Comparando com == e ===
-// // ------------------------------------------------------------
-// // Para cada par de valores abaixo, declare duas variáveis e exiba:
-// //   a) O resultado de == usando template literal: "<a> == <b> → <resultado>"
-// //   b) O resultado de === usando template literal: "<a> === <b> → <resultado>"
-// //
-// // Pares de valores:
-// //   1) 10 e 10
-// //   2) 10 e "10"
-// //   3) 0 e false
-// //   4) null e undefined
-// //   5) "JS" e "JS"
+// ------------------------------------------------------------
+// EXERCÍCIO 1 – Comparando com == e ===
+// ------------------------------------------------------------
+// Para cada par de valores abaixo, declare duas variáveis e exiba:
+//   a) O resultado de == usando template literal: "<a> == <b> → <resultado>"
+//   b) O resultado de === usando template literal: "<a> === <b> → <resultado>"
+//
+// Pares de valores:
+// 1) 10 e 10
+//  2) 10 e "10"
+//  3) 0 e false
+//  4) null e undefined
+//  5) "JS" e "JS"
 
-// // → Seu código aqui:
+// → Seu código aqui:
 
 // let arrValores = [
 //     10,
@@ -28,7 +28,7 @@ const readlineSync = require("readline-sync")
 // ]
 
 // console.log(`
-//     RESULTADO ESTRITAMENTE IGUAL === 
+//     RESULTADO ESTRITAMENTE IGUAL ===
 //     - - - - - - - - - - - - - - - - - - - - - - -
 //     ${arrValores[0]} == ${arrValores[1]}: RESULTADO: ${arrValores[0] == arrValores[1]}
 //     ${arrValores[2]} == ${arrValores[3]}: RESULTADO: ${arrValores[2] == arrValores[3]}
@@ -37,7 +37,7 @@ const readlineSync = require("readline-sync")
 //     - - - - - - - - - - - - - - - - - - - - - - -
 // `)
 // console.log(`
-//     RESULTADO ESTRITAMENTE IGUAL === 
+//     RESULTADO ESTRITAMENTE IGUAL ===
 //     - - - - - - - - - - - - - - - - - - - - - - -
 //     ${arrValores[0]} == ${arrValores[1]}: RESULTADO: ${arrValores[0] == arrValores[1]}
 //     ${arrValores[2]} == ${arrValores[3]}: RESULTADO: ${arrValores[2] == arrValores[3]}
@@ -72,7 +72,7 @@ const readlineSync = require("readline-sync")
 //     true,
 //     1
 // ]
-// // != (diferente com coerção de tipo) 
+// // != (diferente com coerção de tipo)
 // // [verifica o valor mas ignora o tipo do dado (string, number, boolean, etc)]
 // console.log(`
 //     RESULTADO DESIGUALDADE DIFERENTE COM COESAO !=
@@ -265,56 +265,48 @@ const readlineSync = require("readline-sync")
 //    Exemplo: `Aluno com primeira maior nota: ${nota1aluno1 > nota1aluno2 ? nomeAluno1 : nomeAluno2}`
 // → Seu código aqui:
 
-const alunos = []
-let alunosNotas1
-let alunosNotas2
-let alunosNotas3
+const alunos = [];
+let alunosNotas1;
+let alunosNotas2;
+let alunosNotas3;
 userName = readlineSync.question(`
-    Insira o nome do Aluno(a):`)
+    Insira o nome do Aluno(a):`);
 alunosNotas1 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
+    Insira a nota do Aluno(a):`);
 alunosNotas2 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
+    Insira a nota do Aluno(a):`);
 alunosNotas3 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
-alunos.push(
-    {
-        Nome: userName, notas: [
-            alunosNotas1,
-            alunosNotas2,
-            alunosNotas3
-        ]
-    }
-)
-console.table(alunos)
+    Insira a nota do Aluno(a):`);
+alunos.push({
+  Nome: userName,
+  notas: [alunosNotas1, alunosNotas2, alunosNotas3],
+});
+console.table(alunos);
 userName = readlineSync.question(`
-    Insira o nome do Aluno(a):`)
+    Insira o nome do Aluno(a):`);
 alunosNotas1 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
+    Insira a nota do Aluno(a):`);
 alunosNotas2 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
+    Insira a nota do Aluno(a):`);
 alunosNotas3 = readlineSync.questionFloat(`
-    Insira a nota do Aluno(a):`)
-alunos.push(
-    {
-        Nome: userName, notas: [
-            alunosNotas1,
-            alunosNotas2,
-            alunosNotas3
-        ]
-    }
-)
-console.table(alunos)
+    Insira a nota do Aluno(a):`);
+alunos.push({
+  Nome: userName,
+  notas: [alunosNotas1, alunosNotas2, alunosNotas3],
+});
+console.table(alunos);
 
-const alunosSomaNotas1 = alunos[0].notas[0] + alunos[0].notas[1] + alunos[0].notas[2]
-const alunosMediaNotas1 = alunosSomaNotas1 / alunos[0].notas.length
+const alunosSomaNotas1 =
+  alunos[0].notas[0] + alunos[0].notas[1] + alunos[0].notas[2];
+const alunosMediaNotas1 = alunosSomaNotas1 / alunos[0].notas.length;
 
-const alunosSomaNotas2 = alunos[1].notas[0] + alunos[0].notas[1] + alunos[1].notas[2]
-const alunosMediaNotas2 = alunosSomaNotas2 / alunos[1].notas.length
+const alunosSomaNotas2 =
+  alunos[1].notas[0] + alunos[0].notas[1] + alunos[1].notas[2];
+const alunosMediaNotas2 = alunosSomaNotas2 / alunos[1].notas.length;
 
 console.log(`
     Maior media entre: ${alunos[0].Nome} || ${alunos[1].Nome}
     O RESULTADO: ${alunosMediaNotas1 >= alunosMediaNotas2 ? alunos[0].Nome : alunos[1].Nome}
-    `)
-console
+    `);
+console;
 console.log("_______________________________");
