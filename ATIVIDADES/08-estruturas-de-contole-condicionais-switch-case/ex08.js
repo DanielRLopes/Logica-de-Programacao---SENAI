@@ -16,6 +16,40 @@
 
 // → Seu código aqui:
 
+const readlineSync = require("readline-sync");
+
+let planeta = 3;
+
+switch (planeta) {
+  case 1:
+    console.log(`Mercurio`);
+    break;
+  case 2:
+    console.log(`Venus`);
+    break;
+  case 3:
+    console.log(`Terra`);
+    break;
+  case 4:
+    console.log(`Marte`);
+    break;
+  case 5:
+    console.log(`Jupiter`);
+    break;
+  case 6:
+    console.log(`Saturno`);
+    break;
+  case 7:
+    console.log(`Urano`);
+    break;
+  case 8:
+    console.log(`Netuno`);
+    break;
+  default:
+    console.log(`Planeta nao encontrado!`);
+    break;
+}
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -31,6 +65,25 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let direcao = "Norte";
+
+switch (direcao) {
+  case "Norte":
+    console.log(`Seguindo para o Norte! `);
+    break;
+  case "Sul":
+    console.log(`Seguindo para o Sul!`);
+    break;
+  case "Leste":
+    console.log(`Seguindo para o Leste!`);
+    break;
+  case "Oeste":
+    console.log(`Seguindo para o Oeste!`);
+    break;
+  default:
+    console.log(`Direcao desconhecida.`);
+    break;
+}
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -44,6 +97,23 @@ console.log("_______________________________");
 // c) Exiba a categoria com template literal.
 
 // → Seu código aqui:
+
+let tipoVeiculo = "Moto";
+
+switch (tipoVeiculo) {
+  case "Moto":
+  case "Bicicleta":
+  case "Carro":
+    console.log(`Veiculo leve`);
+    break;
+  case "Caminhao":
+  case "Onibus":
+    console.log(`Veiculo pesado`);
+    break;
+  default:
+    console.log(`Tipo desconhecido.`);
+    break;
+}
 
 console.log("_______________________________");
 
@@ -61,6 +131,27 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+/*Decidi usar a funcao keyInSelect Pois visualmente para selecionar BLOQUEIA campos indesejados;*/
+const visualTurnos = ["1- Manha", "2- Tarde", "3- Noite"];
+
+let escolhaTurno = readlineSync.keyInSelect(visualTurnos, `Escolha o Turno:`);
+
+switch (escolhaTurno) {
+  case 0:
+    console.log(`Bom dia! Turno da manha.`);
+    break;
+  case 1:
+    console.log(`Boa tarde! Turno da tarde.`);
+    break;
+  case 2:
+    console.log(`Boa noite! Turno da noite!`);
+    break;
+  case -1 /*OPCAO 0 DO keyInSelect CAIRIA PARA O DEFAULT pois OPCAO 0 de SAIR é -1 o indice do keyInSelect do array */:
+    break;
+  default:
+    console.log(`Opcao invalida`);
+    break;
+}
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -77,6 +168,32 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const estacoes = ["Versao", "Outuno", "Inverno", "Primavera"];
+
+let escolherEstacao = readlineSync.keyInSelect(
+  estacoes,
+  `Qual sua estacao favorita: `,
+);
+
+switch (escolherEstacao) {
+  case 0:
+    console.log(`Dias quentes e ferias!`);
+    break;
+  case 1:
+    console.log(`Folhas caindo e temperatuas amenas.`);
+    break;
+  case 2:
+    console.log(`Frio, cobertores e chocolate quente.`);
+    break;
+  case 3:
+    console.log(`Flores, calor e renovaocao.`);
+    break;
+  case -1:
+    break;
+  default:
+    console.log(`Estacao nao reconhecida`);
+    break;
+}
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -89,6 +206,26 @@ console.log("_______________________________");
 //    - default → "Número inválido"
 
 // → Seu código aqui:
+
+let numberRandom = readlineSync.questionInt(`Insira um mumero de 1 a 7: `);
+
+switch (numberRandom) {
+  case 1:
+  case 2:
+  case 3:
+  case 4:
+  case 5:
+    console.log(`Dia util!`);
+    break;
+  case 6:
+  case 7:
+    console.log(`Final de semana. `);
+    break;
+
+  default:
+    console.log(`Numero invalido!`);
+    break;
+}
 
 console.log("_______________________________");
 
@@ -109,6 +246,50 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const categoriaProduto = [
+  "1 - Eletronico",
+  "2 - Vestuario",
+  "3 - Alimento",
+  "4 - Livro",
+];
+
+const produto = {
+  nome: (readlineSync.question = `Nome: `),
+  categoria: readlineSync.keyInSelect(
+    categoriaProduto,
+    `Escolha a categoria: `,
+  ),
+  preco: null,
+};
+
+switch (produto.categoria) {
+  case 0:
+    produto.descricaoCategoria = "Eletronico";
+    produto.garantia = "12 meses";
+    break;
+  case 1:
+    produto.descricaoCategoria = "Vestuario";
+    produto.garantia = "Troca em 30 dias";
+    break;
+  case 2:
+    produto.descricaoCategoria = "Alimento";
+    produto.garantia = "Ver validade";
+    break;
+  case 3:
+    produto.descricaoCategoria = "Livro";
+    produto.garantia = "Sem garantia";
+    break;
+  case -1:
+    break;
+  default:
+    produto.descricaoCategoria = "Categoria invalida";
+    produto.garantia = "Sem garantia";
+    console.log(`Categoria invalida`);
+    break;
+}
+
+console.table(produto);
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -127,6 +308,19 @@ console.log("_______________________________");
 // c) Exiba: "<nome> – Nota: <nota> | Conceito: <conceito> | <mensagem>"
 
 // → Seu código aqui:
+
+let userName = readlineSync.question(`Nome do usuario:`);
+let nota = readlineSync.questionInt(`Insira sua nota (0 a 10): `);
+let conceito;
+
+switch (nota) {
+  case 10:
+  case 9:
+    break;
+
+  default:
+    break;
+}
 
 console.log("_______________________________");
 
