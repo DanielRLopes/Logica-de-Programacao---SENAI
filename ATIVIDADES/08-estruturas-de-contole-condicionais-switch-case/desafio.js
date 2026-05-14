@@ -37,6 +37,20 @@
 
 // → Seu código aqui:
 
+const readlineSync = require("readline-sync")
+
+const cardapio = [
+    { numero: 1, nome: "Frango Grelhado", preco: 32.00 },
+    { numero: 2, nome: "File ao Molho", preco: 45.00 },
+    { numero: 3, nome: "Massa Italiana", preco: 28.00 },
+    { numero: 4, nome: "Salada Caesar", preco: 22.00 },
+    { numero: 5, nome: "Spá do Dia", preco: 18.00 },
+]
+
+const bebidas = [
+    {}
+]
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -66,6 +80,75 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let valorConverter = readlineSync.questionFloat(`Qual valor a se converter: `)
+
+const tipoConversao = [
+    "1 - Km para Milhas",
+    "2 - Milhas para Km",
+    "3 - Celcius para Fahrenheit",
+    "4 - Fahrenheit para Celcius",
+    "5 - Kg para Libras",
+    "6 - Libras para Kg"
+]
+
+let selecionarConversao = readlineSync.keyInSelect(tipoConversao, `Selecione o tipo da conversao: `)
+
+const conversaoObjeto = {
+    valorOriginal: valorConverter,
+    unidadeOriginal: null,
+    resultado: null,
+    unidadeResultado: null
+}
+
+switch (selecionarConversao) {
+    case 0:
+        console.log(`Km para Milhas: ${valorConverter * 0.621371}`)
+        conversaoObjeto.resultado = valorConverter * 0.621371
+        conversaoObjeto.unidadeOriginal = "Km"
+        conversaoObjeto.unidadeResultado = "Milhas"
+
+        break;
+    case 1:
+        console.log(`Milhas para Km: ${valorConverter * 1.60934}`)
+        conversaoObjeto.resultado = valorConverter * 1.60934
+        conversaoObjeto.unidadeOriginal = "Milhas"
+        conversaoObjeto.unidadeResultado = "Km"
+        break;
+    case 2:
+        console.log(`Celcius para Fahrenheit: ${(valorConverter * 9 / 5) + 32}`)
+        conversaoObjeto.resultado = (valorConverter * 9 / 5) + 32
+        conversaoObjeto.unidadeOriginal = "Celcius"
+        conversaoObjeto.unidadeResultado = "Fahrenheit"
+        break;
+    case 3:
+        console.log(`Fahrenheit para Celcius: ${(valorConverter - 32) * 5 / 9}`)
+        conversaoObjeto.resultado = (valorConverter * 9 / 5) + 32
+        conversaoObjeto.unidadeOriginal = "Celcius"
+        conversaoObjeto.unidadeResultado = "Fahrenheit"
+        break;
+    case 4:
+        console.log(`Kg para Libras: ${valorConverter * 2.20462}`)
+        conversaoObjeto.resultado = valorConverter * 2.20462
+        conversaoObjeto.unidadeOriginal = "Kg"
+        conversaoObjeto.unidadeResultado = "Libras"
+        break;
+    case 5:
+        console.log(`Libras ´para Kg: ${valorConverter / 2.20462}`)
+        conversaoObjeto.resultado = valorConverter / 2.20462
+        conversaoObjeto.unidadeOriginal = "Libras"
+        conversaoObjeto.unidadeResultado = "Kg"
+        break;
+    case -1:
+        break;
+    default:
+        console.log(`Tipo de conversao invalida!`)
+        break;
+}
+
+console.table(conversaoObjeto)
+
+console.log(`${conversaoObjeto.valorOriginal}${conversaoObjeto.unidadeOriginal} = ${conversaoObjeto.resultado}${conversaoObjeto.unidadeResultado}`)
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -83,6 +166,22 @@ console.log("_______________________________");
 // e) Exiba o resultado final.
 
 // → Seu código aqui:
+
+const jogada = ["pedra", "papel", "tesoura"];
+
+const computador = jogada[Math.floor(Math.random() * 3)];
+
+const usuarioJogada = [
+    "1 - Pedra",
+    "2 - Papel",
+    "3 - Tesoura"
+]
+
+let indiceSelecionado = readlineSync.keyInSelect(usuarioJogada, `Qual sua jogada: `)
+
+console.log(`Voce: ${indiceSelecionado} | Computador: ${computador}`)
+
+
 
 console.log("_______________________________");
 
@@ -148,3 +247,21 @@ console.log("_______________________________");
 // Você pode criar um sistema de atribuição de pontos para cada resposta
 // e determinar a classe final com base na pontuação total,
 // ou simplesmente fazer verificações diretas. Use a criatividade para resolver este desafio.
+
+const criarPersonagemObjeto = {
+    atributos: {
+        atributosFisicos: {
+            forca: null,
+            destreza: null,
+            constituicao: null
+        },
+        atributosMentais: {
+            inteligencia: null,
+            sabedoria: null,
+            carisma: null
+        }
+    },
+    racasPerguntas: {
+        
+    }
+}

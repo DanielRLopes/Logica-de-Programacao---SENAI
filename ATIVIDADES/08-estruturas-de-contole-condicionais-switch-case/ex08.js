@@ -309,18 +309,46 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-let userName = readlineSync.question(`Nome do usuario:`);
-let nota = readlineSync.questionInt(`Insira sua nota (0 a 10): `);
-let conceito;
+let nome = readlineSync.question(`Nome de usuario: `)
+let nota = readlineSync.questionInt(`Insira nota (0 a 10): `)
 
-switch (nota) {
+const usuario = {
+  nome: nome,
+  nota: nota,
+}
+
+switch (usuario.nota) {
   case 10:
   case 9:
+    usuario.conceito = "A"
+    usuario.mensagem = "Execelente!"
     break;
-
+  case 8:
+  case 7:
+    usuario.conceito = "B"
+    usuario.mensagem = "Muito Bom!"
+    break;
+  case 6:
+  case 5:
+    usuario.conceito = "C"
+    usuario.mensagem = "Suficiente."
+    break;
+  case 4:
+  case 3:
+    usuario.conceito = "D"
+    usuario.mensagem = "Em recuperacao."
+    break;
+  case 2:
+  case 1:
+  case 0:
+    usuario.conceito = "F"
+    usuario.mensagem = "Reprovado."
   default:
+    console.log(`Nota invalida`)
     break;
 }
+
+console.log(`${usuario.userName} - Nota: ${usuario.nota} | Conceito: ${usuario.conceito} | Mensagem: ${usuario.mensagem}`)
 
 console.log("_______________________________");
 
@@ -338,6 +366,9 @@ console.log("_______________________________");
 //    No default, exiba: "Operação inválida."
 
 // → Seu código aqui:
+
+let n1 = readlineSync.questionFloat(`Insira o 1 numero: `)
+let n2 = readlineSync.questionFloat(`Insira o 2 numero: `)
 
 console.log("_______________________________");
 
