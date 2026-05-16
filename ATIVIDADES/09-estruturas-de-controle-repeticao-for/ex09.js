@@ -11,6 +11,14 @@
 
 // → Seu código aqui:
 
+for (let i = 5; i <= 12; i++) {
+  console.log(`
+Contagem Simples: ${i}`);
+}
+
+console.log(`
+Contagem Concluida!`);
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -22,6 +30,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+for (let i = 10; i >= 3; i--) {
+  console.log(`
+Contagem Decrescente: ${i}`);
+}
+
+console.log(`
+Lancamento!`);
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -31,6 +47,15 @@ console.log("_______________________________");
 // b) Ao final, exiba quantos números pares foram exibidos.
 
 // → Seu código aqui:
+
+let quantidade = null;
+
+for (let i = 0; i <= 30; i += 2) {
+  console.log(`${i}`);
+  quantidade++;
+}
+console.log(`
+Quantidade de numero pares: ${quantidade}`);
 
 console.log("_______________________________");
 
@@ -43,6 +68,16 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const readlineSync = require("readline-sync");
+
+let numberInt = readlineSync.questionInt(`
+Insira um numero: `);
+
+for (let i = 1; i <= 10; i++) {
+  console.log(`
+${numberInt} x ${i} = ${numberInt * i}`);
+}
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -53,6 +88,18 @@ console.log("_______________________________");
 // c) Exiba: "A soma de 1 até <N> é <soma>"
 
 // → Seu código aqui:
+
+numberInt = readlineSync.questionInt(`
+Insira um numero inteiro positivo N: `);
+
+let soma = null;
+
+for (let i = 1; i <= numberInt; i++) {
+  soma += i;
+}
+
+console.log(`
+A soma de 1 ate ${numberInt} e ${soma}`);
 
 console.log("_______________________________");
 
@@ -66,6 +113,18 @@ console.log("_______________________________");
 // c) Exiba: "<N>! = <resultado>"
 
 // → Seu código aqui:
+
+numberInt = readlineSync.questionInt(`
+Insira um numero de 1 a 10: `);
+
+let multiplicar = 1;
+
+for (let i = 1; i <= numberInt; i++) {
+  multiplicar *= i;
+}
+
+console.log(`
+${numberInt}! = ${multiplicar}`);
 
 console.log("_______________________________");
 
@@ -86,6 +145,10 @@ const cidades = [
 
 // → Seu código aqui:
 
+for (let i = 0; i < cidades.length; i++) {
+  console.log(`
+Indice: ${i} | Cidade: ${cidades[i]}`);
+}
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -99,6 +162,26 @@ console.log("_______________________________");
 //    "Menor temperatura: <menor>°C"
 
 // → Seu código aqui:
+
+const temperaturas = [28, 15, 32, 9, 21, 37, 14, 25];
+
+let maiorTemperatura = temperaturas[0];
+let menorTemperatura = temperaturas[0];
+
+for (let i = 0; i < temperaturas.length; i++) {
+  if (temperaturas[i] > maiorTemperatura) {
+    maiorTemperatura = temperaturas[i];
+  }
+  if (temperaturas[i] < menorTemperatura) {
+    menorTemperatura = temperaturas[i];
+  }
+}
+
+console.log(`
+Maior temperatura: ${maiorTemperatura}°C`);
+
+console.log(`
+Menor temperatura: ${menorTemperatura}°C`);
 
 console.log("_______________________________");
 
@@ -114,6 +197,21 @@ const idades = [12, 25, 17, 34, 15, 42, 16, 29, 8, 19];
 
 // → Seu código aqui:
 
+let contadorMaior = 0;
+let contadorMenor = 0;
+
+for (let i = 0; i < idades.length; i++) {
+  if (idades[i] < 18) {
+    contadorMaior++;
+  }
+  if (idades[i] >= 18) {
+    contadorMenor++;
+  }
+}
+
+console.log(`
+${contadorMaior} | ${contadorMenor}`);
+
 console.log("_______________________________");
 
 // ------------------------------------------------------------
@@ -128,6 +226,18 @@ const salarios = [1800, 3200, 950, 4500, 2100, 1500, 7800, 2900];
 //    "R$ 3200,00 – Acima da média"
 
 // → Seu código aqui:
+
+soma = null;
+let mediaSalarial = null;
+
+let acimaMedia = null;
+let abaixoMedia = null;
+
+for (let i = 0; i < salarios.length; i++) {
+  soma += i;
+}
+
+console.log(soma);
 
 console.log("_______________________________");
 
