@@ -15,9 +15,17 @@
 
 // → Seu código aqui:
 
+const city = ["Jaragua do Sul", "Guaramirin", "Belo Horizonte", "Maconholandia", "Batolandia"]
 
+
+for (let i = 0; i < city.length; i++) {
+    console.log(`${city[i]}`)
+}
+console.log(``)
+console.log(`1° ${city[0]} | Ultima: ${city[4]}
+Total de cidades: ${city.length}`)
+console.log(``)
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 2 – Soma e média
@@ -30,6 +38,15 @@ const numeros = [12, 7, 25, 3, 18, 9, 31, 14];
 
 // → Seu código aqui:
 
+let soma = 0;
+
+for (let i = 0; i < numeros.length; i++) {
+    soma += numeros[i]
+}
+
+let media = soma / 8
+console.log(``)
+console.log(`Soma: ${soma} | Media ${media.toFixed(2)}`)
 
 console.log("_______________________________");
 
@@ -43,7 +60,21 @@ const temperaturas = [22.5, 19.0, 27.3, 18.7, 30.1, 25.4, 21.8];
 // c) Exiba: "Maior: <maior>°C | Menor: <menor>°C"
 
 // → Seu código aqui:
+console.log(``)
+let maiorTemp = temperaturas[0]
+let menorTemp = temperaturas[0]
 
+
+for (let i = 0; i < temperaturas.length; i++) {
+    if (maiorTemp < temperaturas[i]) {
+        maiorTemp = temperaturas[i]
+    }
+    if (menorTemp > temperaturas[i]) {
+        menorTemp = temperaturas[i]
+    }
+}
+
+console.log(`Maior: ${maiorTemp}°C | Menor: ${menorTemp}°C`)
 
 console.log("_______________________________");
 
@@ -61,6 +92,13 @@ const listaNumeros = [4, 7, 10, 13, 16, 19, 22, 25, 28];
 
 // → Seu código aqui:
 
+const paresVetor = []
+const imparesVetor = []
+
+
+for (let i = 0; i < listaNumeros.length; i++) {
+
+}
 
 console.log("_______________________________");
 
@@ -78,7 +116,14 @@ const vetorOriginal = ["A", "B", "C", "D", "E"];
 //    salve o resultado em vetorInvertido2 e exiba o resultado.
 
 // → Seu código aqui:
+console.log(``)
+let vetorInvertido = null;
+for (let i = 0; i < vetorOriginal.length; i++) {
+    vetorInvertido = vetorOriginal.reverse()
+}
 
+console.log(`Original: ${vetorOriginal}
+Invertido: ${vetorInvertido}`)
 
 console.log("_______________________________");
 
