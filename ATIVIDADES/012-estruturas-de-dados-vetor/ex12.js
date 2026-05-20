@@ -73,7 +73,7 @@ for (let i = 0; i < temperaturas.length; i++) {
         menorTemp = temperaturas[i]
     }
 }
-
+console.log(``)
 console.log(`Maior: ${maiorTemp}°C | Menor: ${menorTemp}°C`)
 
 console.log("_______________________________");
@@ -95,9 +95,20 @@ const listaNumeros = [4, 7, 10, 13, 16, 19, 22, 25, 28];
 const paresVetor = []
 const imparesVetor = []
 
-
 for (let i = 0; i < listaNumeros.length; i++) {
+    if (listaNumeros[i] % 2 === 0) {
+        paresVetor.push(listaNumeros[i])
+    } else {
+        imparesVetor.push(listaNumeros[i])
+    }
+}
 
+for (let i = 0; i < paresVetor.length; i++) {
+    console.log(`Par ${i}: ${paresVetor[i]}`)
+}
+
+for (let i = 0; i < imparesVetor.length; i++) {
+    console.log(`Impar ${i}: ${imparesVetor[i]}`)
 }
 
 console.log("_______________________________");
@@ -138,6 +149,22 @@ console.log("_______________________________");
 //    "<qtd> produtos cadastrados."
 
 // → Seu código aqui:
+const readlineSync = require("readline-sync")
+
+const vetor = [];
+
+const produtoCadastro = readlineSync.question(`Quantos produtos deseja cadastrar: `)
+
+let nomeProduto = null;
+
+for (let i = 0; i < produtoCadastro; i++) {
+    nomeProduto = readlineSync.question(`Nome do Produto: `)
+    vetor.push(nomeProduto)
+}
+
+for (let i = 0; i < vetor.length; i++) {
+    console.log(`${i} | Produto: ${vetor[i]}`)
+}
 
 
 console.log("_______________________________");
@@ -147,7 +174,7 @@ console.log("_______________________________");
 // EXERCÍCIO 7 – Busca em vetor
 // ------------------------------------------------------------
 // a) Utilizando o vetor:
-const alunos = ["Ana", "Bruno", "Carla", "Diego", "Eva"];
+const alunos = ["Ana", "Bruno", "Carla", "Diego", "Eva"]
 // b) Pergunte ao usuário o nome de um aluno.
 // c) Usando for e break, verifique se o nome existe na lista.
 //    - Se existir: "<nome> está matriculado(a) (índice <i>)."
@@ -155,6 +182,17 @@ const alunos = ["Ana", "Bruno", "Carla", "Diego", "Eva"];
 
 // → Seu código aqui:
 
+let nomeAluno = readlineSync.question(`Insira nome de um aluno: `)
+
+for (let i = 0; i < alunos.length; i++) {
+    if (nomeAluno === alunos[i]) {
+        console.log(`${nomeAluno} esta matriculado(a) ${i}`)
+        break;
+    } else {
+        console.log(`${nomeAluno} nao foi encontrado(a). `)
+        break;
+    }
+}
 
 console.log("_______________________________");
 
@@ -177,6 +215,21 @@ const livros = [
 
 // → Seu código aqui:
 
+console.table(livros)
+let totalPaginas = 0;
+let mediaPaginaLivro = 0;
+
+for (let i = 0; i < livros.length; i++) {
+    totalPaginas += livros[i].paginas
+}
+console.log(totalPaginas)
+for (let i = 0; i < livros.length; i++) {
+    totalPaginas = 0
+    totalPaginas += livros[i].paginas
+    mediaPaginaLivro += totalPaginas / 4
+}
+console.log(mediaPaginaLivro)
+
 
 console.log("_______________________________");
 
@@ -195,6 +248,24 @@ const idades = [12, 17, 21, 15, 30, 45, 9, 67, 19, 8];
 
 // → Seu código aqui:
 
+const menores = []
+const adultos = []
+
+for (let i = 0; i < idades.length; i++) {
+    if (idades[i] < 18) {
+        menores.push(idades[i])
+    } else if (idades[i] >= 18) {
+        adultos.push(idades[i])
+    }
+}
+
+for (let i = 0; i < menores.length; i++) {
+    console.log(`Menores ${i}: ${menores[i]}`)
+}
+
+for (let i = 0; i < adultos.length; i++) {
+    console.log(`Adultos ${i}: ${adultos[i]}`)
+}
 
 console.log("_______________________________");
 
