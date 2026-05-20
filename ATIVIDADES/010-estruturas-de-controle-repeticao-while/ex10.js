@@ -2,7 +2,6 @@
 //   ATIVIDADE 10 – Estruturas de Controle (Repetição - While)
 // ============================================================
 
-
 // ------------------------------------------------------------
 // EXERCÍCIO 1 – While simples
 // ------------------------------------------------------------
@@ -12,10 +11,14 @@
 
 // → Seu código aqui:
 
-
+let n = 1;
+while (n <= 7) {
+	console.log(n);
+	n++;
+}
+console.log(`Fim da contagem!`);
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 2 – Contagem regressiva
@@ -26,9 +29,14 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let regressiva = 10;
 
+while (regressiva >= 1) {
+	console.log(regressiva);
+	regressiva--;
+}
+console.log(`Lancamento ON!`);
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 3 – Validação de entrada
@@ -39,52 +47,141 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const readlineSync = require("readline-sync");
 
-console.log("_______________________________");
+// let numeroCorreto = Math.floor(Math.random() * 5) + 1;
+// let userNumber = readlineSync.questionInt(`Insira um numero entre (1 e 5): `);
 
+// while (numeroCorreto > 3) {
+// 	if (userNumber === numeroCorreto) {
+// 		console.log(`Voce escolheu: ${userNumber}`);
+// 		numeroCorreto = 2;
+// 	} else {
+// 		console.log(`Valor fora do intervalo. Tente novamente.`);
+// 		break;
+// 	}
+// }
 
-// ------------------------------------------------------------
-// EXERCÍCIO 4 – Acumulador com while
-// ------------------------------------------------------------
-// a) Usando while, peça ao usuário números até que ele digite 0.
-// b) Acumule a soma de todos os números digitados.
-// c) Conte quantos números foram digitados (exceto o 0).
-// d) Ao final, exiba a soma, a quantidade de numeros digitados e quais foram os números digitados.
+// console.log("_______________________________");
 
-// → Seu código aqui:
+// // ------------------------------------------------------------
+// // EXERCÍCIO 4 – Acumulador com while
+// // ------------------------------------------------------------
+// // a) Usando while, peça ao usuário números até que ele digite 0.
+// // b) Acumule a soma de todos os números digitados.
+// // c) Conte quantos números foram digitados (exceto o 0).
+// // d) Ao final, exiba a soma, a quantidade de numeros digitados e quais foram os números digitados.
 
+// // → Seu código aqui:
 
-console.log("_______________________________");
+// let condicaoWhile = 1;
+// let soma = 0;
+// let tentativas = 0;
+// const numerosDigitados = [];
 
+// while (condicaoWhile > 0) {
+// 	userNumber = readlineSync.questionInt(`Insira algum numero: `);
+// 	soma += userNumber;
+// 	numerosDigitados.push(userNumber);
+// 	if (userNumber === 0) {
+// 		if (tentativas === 0) {
+// 			console.log(`Parabens acertou de primeira!`);
+// 			condicaoWhile--;
+// 		} else {
+// 			console.log(``);
+// 			console.log(
+// 				` Soma: ${soma} | Quantidade de numeros digitados: ${tentativas} | Quais numeros foram digitados:
+//         `,
+// 			),
+// 				console.table(numerosDigitados);
+// 			condicaoWhile--;
+// 		}
+// 	}
+// 	tentativas++;
+// }
 
-// ------------------------------------------------------------
-// EXERCÍCIO 5 – Média com while e validação
-// ------------------------------------------------------------
-// a) Usando while, peça ao usuário notas de 0 a 10 até que ele digite -1 para encerrar.
-//    Se a nota for inválida (< 0 e diferente de -1, ou > 10), exiba: "Nota inválida." e peça novamente.
-// b) Calcule e exiba a média.
+// console.log("_______________________________");
 
-// → Seu código aqui:
+// // ------------------------------------------------------------
+// // EXERCÍCIO 5 – Média com while e validação
+// // ------------------------------------------------------------
+// // a) Usando while, peça ao usuário notas de 0 a 10 até que ele digite -1 para encerrar.
+// //    Se a nota for inválida (< 0 e diferente de -1, ou > 10), exiba: "Nota inválida." e peça novamente.
+// // b) Calcule e exiba a média.
 
+// // → Seu código aqui:
 
-console.log("_______________________________");
+// condicaoWhile = 1;
+// let acomularNotas = 0;
+// tentativas = 0;
+// let mediaNotas = 0;
 
+// while (condicaoWhile > 0) {
+// 	const userNotas = readlineSync.questionFloat(`Insira notas (0 a 10): `);
+// 	if (userNotas === -1) {
+// 		console.log(`Encerrando.`);
+// 		break;
+// 	}
+// 	if ((userNotas < 0 && userNotas !== -1) || userNotas > 10) {
+// 		console.log(`Nota invalida!`);
+// 	}
+// 	if (userNotas >= 0 && userNotas <= 10) {
+// 		acomularNotas += userNotas;
+// 		console.log(``);
+// 		console.log(`Total de notas: ${acomularNotas}`);
+// 		tentativas++;
+// 		const encerrar = readlineSync.keyInYN(`Deseja encerrar?`);
+// 		if (encerrar === true) {
+// 			console.log(`Encerrando`);
+// 			break;
+// 		} else {
+// 			console.log(`Continuando...`);
+// 		}
+// 	}
+// }
 
-// ------------------------------------------------------------
-// EXERCÍCIO 6 – Do...while: menu simples
-// ------------------------------------------------------------
-// a) Usando do...while, exiba um menu repetitivo:
-//    1 – Exibir hora atual  (use: new Date().toLocaleTimeString())
-//    2 – Exibir data atual  (use: new Date().toLocaleDateString())
-//    0 – Sair
-// b) Processe a opção com switch/case.
-// c) O menu deve repetir até o usuário escolher 0.
+// mediaNotas = acomularNotas / tentativas;
+// console.log(`Media: ${mediaNotas}`);
+// console.log(``);
 
-// → Seu código aqui:
+// console.log("_______________________________");
 
+// // ------------------------------------------------------------
+// // EXERCÍCIO 6 – Do...while: menu simples
+// // ------------------------------------------------------------
+// // a) Usando do...while, exiba um menu repetitivo:
+// //    1 – Exibir hora atual  (use: new Date().toLocaleTimeString())
+// //    2 – Exibir data atual  (use: new Date().toLocaleDateString())
+// //    0 – Sair
+// // b) Processe a opção com switch/case.
+// // c) O menu deve repetir até o usuário escolher 0.
 
-console.log("_______________________________");
+// // → Seu código aqui:
 
+// console.log(`
+//     1 - Exibir hora atual:
+//     2 - Exibir data atual:
+//     3 - Sair`);
+// let opcoes = readlineSync.questionInt(`    Escolha: `);
+
+// do {
+// 	let horaAtual = new Date().toLocaleTimeString("pt-BR");
+// 	let dataAtual = new Date().toLocaleDateString("pt-BR");
+// 	switch (opcoes) {
+// 		case 1:
+// 			console.log(` - Hora atual: ${horaAtual}`);
+// 			opcoes = 0;
+// 			break;
+// 		case 2:
+// 			console.log(` - Data atual: ${dataAtual}`);
+// 			opcoes = 0;
+// 			break;
+// 		default:
+// 			break;
+// 	}
+// } while (opcoes !== 0);
+
+// console.log("_______________________________");
 
 // ------------------------------------------------------------
 // EXERCÍCIO 7 – Adivinhe o número (while)
@@ -101,9 +198,36 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let numeroRandom = Math.floor(Math.random() * 50) + 1;
+const playerName = readlineSync.question(`Insira seu nome jogador(a): `);
+tentativas = 0;
+while (numeroRandom > 0) {
+	const palpite = readlineSync.questionInt(
+		`Insira um palpite do numero sorteado: `,
+	);
+	if (palpite > numeroRandom) {
+		tentativas++;
+		console.log(`Muito alto! Tente menor. `);
+	} else if (palpite < numeroRandom) {
+		tentativas++;
+		console.log(`Muito baixo! Tente maior. `);
+	}
+	if (palpite === numeroRandom) {
+		if (tentativas === 0) {
+			console.log(
+				`${playerName} PARABENS! acertou em 0 tentativas! O numero era: ${numeroRandom}`,
+			);
+			break;
+		} else {
+			console.log(
+				`${playerName} acertou apos ${tentativas} tentativa(s)! O numero era: ${numeroRandom}`,
+			);
+			break;
+		}
+	}
+}
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 8 – Tabuada com while
@@ -114,9 +238,15 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const nInteiro = readlineSync.questionInt(`Insira um numero: `);
+let i = 0;
+
+while (i < 10) {
+	i++;
+	console.log(`${nInteiro} x ${i} = ${nInteiro * i}`);
+}
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 9 – Contador com condição composta
@@ -131,9 +261,23 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+let saldo = 1000;
+let rodada = 0;
 
+while (saldo > 0 && rodada < 10) {
+	rodada++;
+	numeroRandom = Math.floor(Math.random() * (200 - 50) + 50);
+	if (numeroRandom > saldo) {
+		console.log(`Saldo insuficiente. Fim!`);
+		break;
+	} else {
+		saldo -= numeroRandom;
+		console.log(
+			`Rodada ${rodada}: Sacou: ${numeroRandom} | Novo saldo: ${saldo}`,
+		);
+	}
+}
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 10 – Do...while: cadastro em loop
@@ -149,5 +293,24 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
+const contatos = [];
+let repetir = null;
+
+do {
+	const userName = readlineSync.question(`Insira seu nome: `);
+	const telefone = readlineSync.questionInt(`Insira seu numero de telefone: `);
+	const objeto = {
+		userName,
+		telefone,
+	};
+	contatos.push(objeto);
+	repetir = readlineSync.keyInYN(`Adicionar outro contato? `);
+	if (repetir === true) {
+		continue;
+	}
+} while (repetir === true);
+
+console.table(contatos);
+console.log(`Total de contatos cadastrados: ${contatos.length}`);
 
 console.log("_______________________________");

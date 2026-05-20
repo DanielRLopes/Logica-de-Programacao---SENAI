@@ -12,24 +12,44 @@
 
 // → Seu código aqui:
 
+for (let i = 0; i < 100; i++) {
+	console.log(i);
+	if (i % 7 === 0 && i > 30) {
+		console.log(`Primeiro multiplo de 7 acima de 30: ${i}`);
+		break;
+	}
+}
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 2 – Continue: filtrando vogais
 // ------------------------------------------------------------
 // a) Utilizando o array:
-const letras = ['a', 'b', 'c', 'e', 'f', 'i', 'k', 'o', 'p', 'u'];
+const letras = ["a", "b", "c", "e", "f", "i", "k", "o", "p", "u"];
 // b) Usando for e continue, exiba apenas as consoantes
 //    (pule as vogais: a, e, i, o, u).
 // c) Ao final, exiba: "Consoantes exibidas: <quantidade>"
 
 // → Seu código aqui:
 
+let consoantes = [];
 
+for (let i = 0; i < letras.length; i++) {
+	if (
+		letras[i] === "a" ||
+		letras[i] === "e" ||
+		letras[i] === "i" ||
+		letras[i] === "o" ||
+		letras[i] === "u"
+	) {
+		continue;
+	} else {
+		consoantes.push(letras[i]);
+	}
+}
+console.log(`Consoantes exibidas: ${consoantes.length}`);
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 3 – Verificar aprovação
@@ -46,9 +66,21 @@ const notasAlunoB = [8, 4.5, 6.3, 9];
 
 // → Seu código aqui:
 
+for (let i = 0; i < notasAlunoA.length; i++) {
+	if (notasAlunoA[i] < 5) {
+		console.log(`Reprovado na nota: ${notasAlunoA[i]}`);
+		break;
+	}
+}
+
+for (let i = 0; i < notasAlunoB.length; i++) {
+	if (notasAlunoB[i] < 5) {
+		console.log(`Reprovado na nota: ${notasAlunoB[i]}`);
+		break;
+	}
+}
 
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 4 – Break com input: adivinhe a palavra
@@ -63,9 +95,7 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 5 – Continue com input: somando positivos
@@ -80,30 +110,26 @@ console.log("_______________________________");
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 6 – Busca em array de objetos
 // ------------------------------------------------------------
 // a) Dado o array de alunos:
 const alunos = [
-    { nome: "Ana", nota: 8.5 },
-    { nome: "Bruno", nota: 6.0 },
-    { nome: "Carlos", nota: 9.2 },
-    { nome: "Diana", nota: 4.8 },
-    { nome: "Eva", nota: 7.1 },
-    { nome: "Fernando", nota: 3.8 }
+	{ nome: "Ana", nota: 8.5 },
+	{ nome: "Bruno", nota: 6.0 },
+	{ nome: "Carlos", nota: 9.2 },
+	{ nome: "Diana", nota: 4.8 },
+	{ nome: "Eva", nota: 7.1 },
+	{ nome: "Fernando", nota: 3.8 },
 ];
 // b) Crie um array que retorna o primeiro aluno com nota < 5.
 //    Se não houver, retorna "Nenhum aluno reprovado".
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 7 – Continue: relatório de vendas
@@ -120,9 +146,7 @@ const vendas = [320, -1, 150, -1, 80, 410, -1, 200];
 
 // → Seu código aqui:
 
-
 console.log("_______________________________");
-
 
 // ------------------------------------------------------------
 // EXERCÍCIO 8 – Break + continue juntos
@@ -135,6 +159,5 @@ console.log("_______________________________");
 // e) Ao final: "Laço encerrado em i = <i> | Soma final: <soma>"
 
 // → Seu código aqui:
-
 
 console.log("_______________________________");
